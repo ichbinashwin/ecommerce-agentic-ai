@@ -10,8 +10,9 @@ from schemas.product import ProductResponse
 from schemas.product import ProductCreate
 from schemas.product import ProductUpdate
 
-router = APIRouter()
+from typing import Optional
 
+router = APIRouter()
 
 @router.get(
     "/",
@@ -24,6 +25,45 @@ async def get_products(
     products = db.query(Product).all()
 
     return products
+
+@router.get("/search")
+def search_products(
+
+    brand: Optional[str] = None,
+
+    category: Optional[str] = None,
+
+    min_price: Optional[float] = None,
+
+    max_price: Optional[float] = None,
+
+    db: Session = Depends(get_db)
+
+):
+
+    query = db.query(Product)
+
+    if brand:
+        query = query.filter(
+            Product.brand.ilike(f"%{brand}%")
+        )
+
+    if category:
+        query = query.filter(
+            Product.category.ilike(f"%{category}%")
+        )
+
+    if min_price:
+        query = query.filter(
+            Product.price >= min_price
+        )
+
+    if max_price:
+        query = query.filter(
+            Product.price <= max_price
+        )
+
+    return query.all()
 
 @router.get(
     "/{product_id}",
@@ -47,7 +87,6 @@ async def get_product(
     response_model=ProductResponse
 
 )
-
 async def update_product(
 
     product_id: int,
@@ -99,7 +138,6 @@ async def delete_product(
     response_model=ProductResponse
 
 )
-
 async def create_product(
 
     product: ProductCreate,
