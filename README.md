@@ -1,139 +1,295 @@
-# MiniShop AI E-Commerce
-
-Simple E-Commerce Application with:
-
-- FastAPI Backend
-- HTML/CSS/JavaScript Frontend
-- LangGraph AI Agent
-- Gemini AI Integration
-
+# 🛒 MiniShop AI — LangGraph AI E-Commerce Assistant
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![LangGraph](https://img.shields.io/badge/LangGraph-AgenticAI-orange)
+![Gemini](https://img.shields.io/badge/Gemini-AI-red)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![Status](https://img.shields.io/badge/Status-MVP-success)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 ---
+# 🚀 Overview
+MiniShop AI is a lightweight AI-powered e-commerce application built using:
+- FastAPI
+- LangGraph
+- Gemini AI
+- Docker
+- HTML/CSS/JavaScript
+The project demonstrates how to build a conversational AI product assistant capable of understanding natural language product queries and dynamically rendering results in a frontend UI.
+---
+# ✨ Features
+## Backend API
+- FastAPI REST APIs
+- Product CRUD endpoints
+- SQLite database
+- Swagger documentation
+## AI Agent
+- LangGraph workflow
+- Gemini AI integration
+- NLP-based product filtering
+- Structured JSON responses
+## Frontend
+- AI product assistant
+- Dynamic product rendering
+- Query autocomplete
+- Responsive UI
+## DevOps
+- Dockerized architecture
+- Docker Compose orchestration
+- Environment variable management
+- GitHub-ready structure
+---
+# 🧠 Example Queries
+```text
+Show me products under 800
+I want Apple products around 500
+Show Samsung phones
+Best rated headphones
+```
+⸻
 
-# Architecture
-
-Frontend (HTML + JS)
+🏗️ Architecture
+```
+Frontend UI
     ↓
 AI Agent (LangGraph + Gemini)
     ↓
 FastAPI Product APIs
     ↓
-PostgreSQL / SQLite
+SQLite Database
+```
+⸻
 
----
+🔄 LangGraph Workflow
+```
+START
+  ↓
+Receive User Query
+  ↓
+Extract NLP Filters
+  ↓
+Fetch Product Data
+  ↓
+Apply Dynamic Filters
+  ↓
+Return Structured JSON
+  ↓
+END
+```
+⸻
 
-# Project Structure
-
+📦 Project Structure
+```
 ecommerce-api/
 │
-├── app/              # FastAPI Backend APIs
-├── frontend/         # Frontend UI
-├── ai-agent/         # LangGraph AI Agent
-└── README.md
+├── app/                  # FastAPI Backend APIs
+├── ai-agent/             # LangGraph AI Agent
+├── frontend/             # HTML/CSS/JS Frontend
+│
+├── docker-compose.yml
+├── Makefile
+├── README.md
+├── LICENSE
+├── SECURITY.md
+└── CONTRIBUTING.md
+```
+⸻
 
----
+⚙️ Tech Stack
+```
+Layer	Technology
+Frontend	HTML, CSS, JavaScript
+Backend API	FastAPI
+AI Framework	LangGraph
+Foundation Model	Gemini 2.5 Flash
+Database	SQLite
+Containerization	Docker
+Orchestration	Docker Compose
+```
+⸻
 
-# Features
+🐳 Run With Docker
+```
+Clone Repository
 
-## Backend API
-- Product CRUD APIs
-- Swagger Documentation
-- FastAPI Framework
+git clone https://github.com/YOUR_USERNAME/ecommerce-ai-langgraph.git
+cd ecommerce-ai-langgraph
+```
+⸻
 
-## Frontend
-- Product Listing UI
-- AI Product Assistant
-- Dynamic Product Rendering
-- Query Autocomplete
+Configure Environment Variables
 
-## AI Agent
-- LangGraph Workflow
-- Gemini AI Integration
-- Product Filtering
-- Conversational Product Search
+Backend
 
----
+Create:
+```
+app/.env
+DATABASE_URL=sqlite:///./ecommerce.db
+```
+⸻
 
-# Run Full Application
+AI Agent
 
-You need 3 terminals.
+Create:
+```
+ai-agent/.env
+GOOGLE_API_KEY=your_gemini_api_key
+PRODUCT_API=http://backend-api:8000/api/v1
+```
+⸻
 
----
+Start Application
+```
+docker compose up --build
+```
+⸻
 
-# Terminal 1 — Backend API
+🌐 Access Applications
+```
+Service	URL
+Frontend	http://localhost:5500
+Backend Swagger	http://localhost:8000/docs
+AI Agent Swagger	http://localhost:9000/docs
+```
+⸻
 
-cd app
+🗃️ Seed Sample Products
 
-uvicorn main:app --reload
+Insert 100 sample products:
+```
+docker compose exec backend-api python seed_products.py
+```
+⸻
 
-Runs on:
-http://127.0.0.1:8000
+📚 API Example
 
-Swagger:
-http://127.0.0.1:8000/docs
+Request
+```
+POST /chat
+{
+  "message": "Show Apple laptops under 1500"
+}
+```
+⸻
 
----
+Response
+```
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "MacBook Air M2",
+      "brand": "Apple",
+      "category": "Laptop",
+      "price": 1199,
+      "rating": 4.8
+    }
+  ]
+}
+```
+⸻
 
-# Terminal 2 — AI Agent
+🔐 Security Notes
 
-cd ai-agent
+Never commit:
 
-source venv/bin/activate
+* .env
+* API keys
+* database files
+* secrets
+* tokens
 
-uvicorn main:api --reload --port 9000
+Use:
 
-Runs on:
-http://127.0.0.1:9000
+* .env.example
+* Docker secrets
+* GitHub secret scanning
 
-Swagger:
-http://127.0.0.1:9000/docs
+⸻
 
----
+📈 Future Roadmap
 
-# Terminal 3 — Frontend
+AI Features
 
-cd frontend
+* Tool Calling
+* Product Recommendations
+* Multi-Agent Workflows
+* Semantic Search
+* Vector Database
 
-python3 -m http.server 5500
+Backend
 
-Open:
-http://127.0.0.1:5500
+* PostgreSQL
+* Redis
+* Authentication
+* Pagination
+* Search APIs
 
----
+Frontend
 
-# Future Improvements
+* React / Next.js
+* Streaming Responses
+* Voice Search
+* Chat History
 
-- Real Tool Calling
-- Product Recommendations
-- Multi-Agent Architecture
-- Authentication
-- Docker
-- PostgreSQL
-- Redis Cache
-- Vector Database
-- Streaming Responses
-- RAG Integration
-- Kubernetes Deployment
+DevOps
 
----
+* Kubernetes
+* CI/CD
+* Terraform
+* Monitoring
+* Observability
 
-# Tech Stack
+⸻
 
-- Python
-- FastAPI
-- LangGraph
-- Gemini AI
-- HTML
-- CSS
-- JavaScript
-
----
-
-# Learning Goals
+🧪 Learning Objectives
 
 This project demonstrates:
 
-- AI Agent Architecture
-- Conversational APIs
-- LangGraph Workflows
-- Frontend + AI Integration
-- Production AI Design Patterns
+* AI orchestration architecture
+* LangGraph workflows
+* Conversational AI systems
+* NLP filtering pipelines
+* Dockerized microservices
+* AI + frontend integration
+
+⸻
+
+🤝 Contributing
+
+See:
+```
+CONTRIBUTING.md
+```
+⸻
+
+🔒 Security
+
+See:
+```
+SECURITY.md
+```
+⸻
+
+📄 License
+
+MIT License
+
+⸻
+
+⭐ Support
+
+If you found this project useful:
+
+* Star the repository
+* Fork the project
+* Contribute improvements
+
+⸻
+
+👨‍💻 Author
+```
+Ashwin Parmar
+
+Security & Compliance Solutions Architect
+Cloud | AI | Security | Software Architecture
+```
