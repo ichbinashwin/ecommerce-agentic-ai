@@ -90,7 +90,14 @@ function renderProducts(products) {
     const container =
         document.getElementById("products-container");
 
+    const countElement =
+        document.getElementById("productCount");
+
     container.innerHTML = "";
+
+    // UPDATE COUNT
+    countElement.innerHTML =
+        `Showing ${products.length} products`;
 
     if (products.length === 0) {
 
@@ -107,7 +114,17 @@ function renderProducts(products) {
 
                 <h3>${product.name}</h3>
 
-                <p>Price: €${product.price}</p>
+                <p><strong>Brand:</strong> ${product.brand}</p>
+
+                <p><strong>Category:</strong> ${product.category}</p>
+
+                <p><strong>Price:</strong> €${product.price}</p>
+
+                <p><strong>Rating:</strong> ⭐ ${product.rating}</p>
+
+                <p><strong>Stock:</strong> ${product.stock}</p>
+
+                <p>${product.description}</p>
 
             </div>
         `;

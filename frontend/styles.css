@@ -145,3 +145,10 @@ body {
     min-height: 80px;
     line-height: 1.6;
 }
+
+.product-count {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
