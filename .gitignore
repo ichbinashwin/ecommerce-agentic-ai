@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+.env/
+.env.*
+
+# SQLite
+*.db
+*.sqlite3
+
+# MacOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Logs
+*.log
+
+# Docker
+docker-data/
+
+# Environment Files
+.env
+
+# Python Cache
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Build
+dist/
+build/
+
+# Node
+node_modules/
+
+# Temporary Files
+tmp/
+temp/
+
+# Secrets
+secrets/
+
+# Local Runtime Files
+*.pid
+
+# AI Cache
+.cache/
+
+# LangChain
+.langchain/
+
+# Jupyter
+.ipynb_checkpoints/

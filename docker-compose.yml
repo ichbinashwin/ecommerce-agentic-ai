@@ -1,0 +1,50 @@
+services:
+
+  backend-api:
+
+    build:
+      context: ./app
+
+    container_name: backend-api
+    env_file:
+      - ./app/.env
+
+    ports:
+      - "8000:8000"
+
+    restart: always
+
+
+  ai-agent:
+
+    build:
+      context: ./ai-agent
+
+    container_name: ai-agent
+
+    ports:
+      - "9000:9000"
+
+    env_file:
+      - ./ai-agent/.env
+
+    depends_on:
+      - backend-api
+
+    restart: always
+
+
+  frontend:
+
+    build:
+      context: ./frontend
+
+    container_name: frontend
+
+    ports:
+      - "5500:80"
+
+    depends_on:
+      - ai-agent
+
+    restart: always

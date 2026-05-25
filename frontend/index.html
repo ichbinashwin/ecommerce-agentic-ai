@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <h1>MiniShop</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Cart</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h2>Modern E-Commerce Store</h2>
+            <p>Simple FastAPI + HTML + JS Frontend</p>
+        </section>
+
+        <section class="ai-assistant">
+            <h2>AI Product Assistant</h2>
+
+            <div class="ai-chat-box">
+                <input
+                type="text"
+                 id="aiInput"
+                  placeholder="Ask about products..."
+                  list="querySuggestions"
+                  />
+                  <datalist id="querySuggestions"></datalist>
+
+                <button onclick="askAI()">
+                    Ask AI
+                </button>
+            </div>
+
+            <div id="aiResponse" class="ai-response">
+                AI response will appear here...
+            </div>
+        </section>
+
+        <section class="products">
+            <h2 class="section-title">Products</h2>
+
+            <div id="products-container" class="products-grid">
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

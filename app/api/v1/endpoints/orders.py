@@ -1,0 +1,13 @@
+from fastapi import APIRouter
+
+router = APIRouter()
+
+
+@router.get("/")
+async def get_orders():
+    return [
+        {
+            "id": 1,
+            "status": "created"
+        }
+    ]
